@@ -11,12 +11,12 @@ products.forEach((elem) => {
 
     dec.addEventListener('click', () => {
         if (+valNumb.innerHTML > 1) {
-            valNumb.innerHTML --;
+            valNumb.innerHTML = valueElem.innerHTML - 1;
         }
     })
 
     inc.addEventListener('click', () => {
-            valNumb.innerHTML ++;
+            valNumb.innerHTML = +valNumb.innerHTML + 1;
         })
     
     addProduct.addEventListener('click', () => {
@@ -24,7 +24,7 @@ products.forEach((elem) => {
         if (prod) {
             prod.querySelector('.cart__product-count').innerHTML = +prod.querySelector('.cart__product-count').innerHTML + +valNumb.innerHTML; 
         } else {
-            productsCard.innerHTML = cartProdHTML(prodId, img, valNumb.innerHTML);
+            productsCard.innerHTML += cartProdHTML(prodId, img, valNumb.innerHTML);
         }
     })  
 })
@@ -36,7 +36,5 @@ const cartProdHTML = (id, img, count) => (`<div class="cart__product"
 </div>`)
 
 function getCard(i){
-    return document.querySelector('.cart__product[data-id="${i}"]');
+    return document.querySelector(`.cart__product[data-id="${i}"`);
 }
-
-
