@@ -1,23 +1,22 @@
-const btn = document.querySelectorAll('.has-tooltip')
+const btn = Array.from(document.querySelectorAll('.has-tooltip'));
 const tooltipActive = document.createElement('div');
 
-
+tooltipActive.className = 'tooltip';
 
 btn.forEach((e) => {
     e.addEventListener('click', (el) => {
         el.preventDefault();
-        tooltipActive.classList.add('tooltip');
-        tooltipActive.classList.toggle('tooltip_active');
-        tooltipActive.textContent = e.getAttribute('title');
-        e.appendChild(tooltipActive);
-        
-    
+        target = el.target;
 
-        let position = e.getBoundingClientRect();
+        if (target.title === tooltipActive.innerText) {
+            tooltipActive.classList.toggle('tooltip_active');
+            return;
+        } 
         
-        tooltipActive.style.left = position.left + 'px';
-        tooltipActive.style.top = position.top12 + 'px';
-
-        tooltipActive.style.position = 'absolute'
+        tooltipActive.innerText = target.title;
+        const { bottom, left } = target.getBoundingClientRect();
+        tooltipActive.style = `left: ${left}px; top: ${bottom}px`;
+        target.insertAdjacentElement('afterEnd', tooltipActive);
+        tooltipActive.classList.add('tooltip_active');
     })
 })
