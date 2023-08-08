@@ -5,7 +5,7 @@ const tasksList = document.querySelector('.tasks__list');
 tasksControl.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if (tasksInput.value) {
+    if (tasksInput.value.trim()) {
         tasksList.insertAdjacentHTML('afterBegin', `<div class="task"><div class="task__title">${tasksInput.value}</div><a href="#" class="task__remove">&times;</a></div>`);
     }
 
