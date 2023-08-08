@@ -16,3 +16,6 @@ sendBtn.addEventListener('click', (e) => {
   e.preventDefault()
   uploadFile(file.files[0])
 })
+
+
+
