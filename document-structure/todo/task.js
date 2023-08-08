@@ -15,13 +15,11 @@ tasksControl.addEventListener('submit', (e) => {
 
 tasksList.addEventListener('click', (ev) => {
     ev.preventDefault();
-    const deletTaskButton = document.querySelectorAll('.task__remove');
-    deletTaskButton.forEach(element => {
-        if (element === ev.target) {
-            element.parentElement.remove();
-        }
-    });
-})
+    if (ev.target.classList.contains('task__remove')) {
+        ev.target.parentElement.remove();
+    }
+});
+
 
 
 
