@@ -11,7 +11,7 @@ products.forEach((elem) => {
 
     dec.addEventListener('click', () => {
         if (+valNumb.innerHTML > 1) {
-            valNumb.innerHTML = valueElem.innerHTML - 1;
+            valNumb.innerHTML = valNumb.innerHTML - 1;
         }
     })
 
@@ -29,11 +29,10 @@ products.forEach((elem) => {
     })  
 })
 
-const cartProdHTML = (id, img, count) => (`<div class="cart__product" 
-    data-id="${id}">
-    <img class="cart__product-image" src="${img}">
-    <div class="cart__product-count">${count}</div>
-</div>`)
+const cartProdHTML = (id, img, count) => (`<div class="cart__product" data-id="${id}">
+         <img class="cart__product-image" src="${img}">
+         <div class="cart__product-count">${count}</div>
+     </div>`)
 
 function getCard(i){
     return document.querySelector(`.cart__product[data-id="${i}"`);
