@@ -4,13 +4,13 @@ let welcom = document.getElementById('welcome');
 let signinForm = document.getElementById('signin__form');
 let singIn = document.getElementById('signin');
 
-if (localStorage.getItem('#user_id')) {
-   singIn.classList.remove('signin_active');
-   welcom.classList.add('welcom_active');
-   userId.innerText = localStorage.getItem('user_id');
-}
+if (localStorage.getItem('user_id')) {
+   singIn.classList.add('signin_active');
+   welcom.classList.remove('welcom_active');
+   userId.innerText = localStorage.getItem('user_id'); 
+} 
 
-signinForm.addEventListener ('submit', (el) => {
+    signinForm.addEventListener ('submit', (el) => {
     el.preventDefault();
     let xhr = new XMLHttpRequest();
     let formData = new FormData(signinForm);
@@ -30,3 +30,4 @@ signinForm.addEventListener ('submit', (el) => {
     xhr.open("POST", "https://students.netoservices.ru/nestjs-backend/auth");
     xhr.send(formData);
 })
+
