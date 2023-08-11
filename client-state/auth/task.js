@@ -4,12 +4,12 @@ let welcom = document.getElementById('welcome');
 let signinForm = document.getElementById('signin__form');
 let singIn = document.getElementById('signin');
 
-if (localStorage.getItem('user_id')) {
-   singIn.classList.add('signin_active');
-   welcom.classList.remove('welcom_active');
-   userId.innerText = localStorage.getItem('user_id'); 
-} 
-
+if (localStorage.userId) {
+    singIn.classList.remove('signin_active');
+    welcom.classList.add('welcome_active');
+    userId.innerText = localStorage.userId;
+  } 
+    
     signinForm.addEventListener ('submit', (el) => {
     el.preventDefault();
     let xhr = new XMLHttpRequest();
